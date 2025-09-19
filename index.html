@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html class="light">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, interactive-widget=resizes-content,user-scalable=no">
+  <meta name="description" content="An web app to search meaning of any word that is it is a dictionary web app">
+  <link rel="shortcut icon" href="favicon.png" type="image/x-icon" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <title>Dictionary</title>
+  <script>
+    tailwind.config = {
+      darkMode: 'class'
+    }
+  </script>
+  <style type="text/css" media="all">
+    #loader span:nth-child(1) {
+      animation: reduce 0.5s ease infinite alternate;
+    }
+    
+    #loader span:nth-child(2) {
+      animation: reduce 0.5s ease infinite alternate;
+      animation-delay: 0.25s;
+    }
+    
+    #loader span:nth-child(3) {
+      animation: reduce 0.5s ease infinite alternate;
+      animation-delay: 0.5s;
+    }
+    
+    
+    @keyframes reduce {
+      from {
+        height: 30px;
+      }
+      
+      to {
+        height: 10px;
+      }
+    }
+  </style>
+</head>
+
+<body class="flex flex-col bg-gray-50 text-gray-800 dark:bg-gray-900 dark:text-gray-100 transition-all duration-100 ease-in-out max-h-[100dvh]">
+  
+  <nav class="bg-white text-gray-900 flex items-center justify-between px-8 py-4 shadow-md dark:bg-gray-800 dark:text-gray-50  ">
+    <div class="flex items-center gap-4">
+      <i data-lucide="book-a"></i>
+      <h2 class="text-xl font-semibold">Dictionary</h2>
+    </div>
+    <div id="toggle-btn" class="p-1 bg-gray-100 text-gray-800 rounded-full dark:bg-gray-900 dark:text-gray-50 flex items-center gap-1">
+      <button class="rounded-full bg-black p-1.5 text-white dark:bg-gray-900 dark:bg-text-800">
+        <i data-lucide="sun"></i>
+      </button>
+      <button class="rounded-full p-1.5 dark:bg-gray-100 dark:text-gray-900">
+        <i data-lucide="moon"></i>
+      </button>
+    </div>
+  </nav>
+  
+  <section class="px-8 py-10 flex justify-center items-center gap-3 ">
+    <input class="max-w-md w-2/3 px-4 py-2 rounded-md shadow-md outline-none dark:bg-gray-50 dark:text-gray-900" id="search" type="search" name="" id="" value="" placeholder="Search Here " />
+    <button onclick="search()" class="bg-blue-500 p-2 rounded-md text-gray-50 font-bold shadow-lg" type="button">
+      <i data-lucide="search"></i>
+    </button>
+  </section>
+  
+  <section class="flex-1 flex flex-col gap-10 py-10 items-center max-h-[70vh] overflow-scroll scroll-smooth " id="result">
+    
+    
+  </section>
+  
+  <div id="loader" class="hidden w-[100vw] h-[50px] flex items-center justify-center gap-2">
+    <span class="block h-[30px] w-[10px] bg-gray-900 dark:bg-white"></span>
+    <span class="block h-[30px] w-[10px] bg-gray-900 dark:bg-white"></span>
+    <span class="block h-[30px] w-[10px] bg-gray-900 dark:bg-white "></span>
+  </div>
+  
+  <script src="main.js" type="text/javascript" charset="utf-8"></script>
+</body>
+
+</html>
